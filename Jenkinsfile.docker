@@ -5,25 +5,25 @@ pipeline {
         stage('Docker Pull') {
             steps {
                 echo 'Pulling Docker Nginx Image'
-                docker pull nginx
+                sh "docker pull nginx"
             }
         }    
         stage('Testing Docker Pull') {
             steps {
                 echo 'Testing Docker Pull...'
-                docker images
+                sh "docker images"
             }
         }
         stage('Docker Run Nginx Container') {
             steps {
                 echo 'Deploying Nginx Container...'
-                "docker run -d --name webservice -P nginx:latest"
+                sh "docker run -d --name webservice -P nginx:latest"
             }
         }    
         stage('Testing Docker Run') {
             steps {
                 echo ' Testing Docker Run'
-                docker ps
+                sh "docker ps"
             }
         }    
     }
