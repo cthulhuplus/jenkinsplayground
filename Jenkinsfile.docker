@@ -6,6 +6,7 @@ pipeline {
             steps {
                 echo 'Pulling Docker Nginx Image'
                 sh '''#!/bin/bash
+                systemctl start docker
                 docker pull nginx
                 '''
             }
@@ -31,6 +32,7 @@ pipeline {
                 echo ' Testing Docker Run'
                 sh '''#!/bin/bash
                 docker ps
+                systemctl stop docker
                 '''
             }
         }    
