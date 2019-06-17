@@ -23,7 +23,7 @@ pipeline {
                 echo 'Deploying Nginx Container...'
             }
             steps {
-                docker run -d --name=webservice -P nginx:latest
+                docker run -d --name webservice -P nginx:latest
             }
         }    
         stage('Testing Docker Run') {
